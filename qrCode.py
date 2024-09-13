@@ -1,6 +1,7 @@
 import qrcode
 from tkinter import *
 from tkinter import ttk
+import os
 
 win= Tk()
 
@@ -19,7 +20,8 @@ def createQr():
         )
     img = qr.add_data(url)
     img = qr.make_image()
-    with open('qrcode.png', 'wb') as f:
+    os.chdir('../../..')
+    with open(os.getcwd()+'/qrcode.png', 'wb') as f:
             img. save(f)
     label1.configure(text="qr-code saved, check the folder", fg="green")
     

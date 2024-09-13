@@ -20,10 +20,11 @@ def createQr():
         )
     img = qr.add_data(url)
     img = qr.make_image()
-    #os.chdir('../../..')
-    with open(os.getcwd()+'/qrcode.png', 'wb') as f:
+    desktop_path = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')
+
+    with open(desktop_path+'/qrcode.png', 'wb') as f:
             img. save(f)
-    label1.configure(text="qr-code saved, check the folder" + os.getcwd(), fg="green")
+    label1.configure(text="qr-code saved, check the Desktop folder", fg="green")
     
 label=Label(win, text="", font=("Modern 22 bold"))
 label.pack()
